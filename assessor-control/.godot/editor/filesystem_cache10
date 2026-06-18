@@ -1,0 +1,12 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1781754923
+Computer_BackImage_Center_Text.tres::Theme::8688070638296649845::1781753915::0::1::::<><><>0<>0<><>::
+control.tscn::PackedScene::2185058960379818064::1781753818::0::1::::<><><>0<>0<><>::uid://cj10f86ptqkrv::::res://2D/纯白背景.png<>uid://wbx24ji4gaps::::res://icon.svg
+icon.svg::CompressedTexture2D::1547665182542700496::1781750912::1781750976::1::::<><><>0<>0<>3399fab14510100f4ab9aeb9f6e7a6f3<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://2D/::1781752261
+纯白背景.png::CompressedTexture2D::5459743417389788239::1781752261::1781752261::1::::<><><>0<>0<>f61b3913838cd071dc772dacfb557641<>res://.godot/imported/纯白背景.png-c505026e3b7637f04ddbc5c425857a28.ctex::
+::res://Font/::1781755059
+NanoDyongSong.ttf::FontFile::5559388299547160634::1781755059::1781755060::1::::<><><>0<>0<>da33a4bd34b983a579ce715ae399b5eb<>res://.godot/imported/NanoDyongSong.ttf-7714e994f98d97250afc7644575ffa11.fontdata::
+::res://Font/思源宋体/::1781754924
+SOURCEHANSERIFCN-BOLD-2.OTF::FontFile::1602389250184228803::1781754838::1781754924::1::::<><><>0<>0<>5ec5f6d5f17a1da940a28a249b2a60b2<>res://.godot/imported/SOURCEHANSERIFCN-BOLD-2.OTF-ee489829c57cd9faaaff5281be9f8ac5.fontdata::
+SOURCEHANSERIFCN-MEDIUM-6.OTF::FontFile::654886762748949252::1781754838::1781754924::1::::<><><>0<>0<>366252f9faa35f1d4bc414dd9c247292<>res://.godot/imported/SOURCEHANSERIFCN-MEDIUM-6.OTF-32cfa16c05e68c4314bdea7b8acb4103.fontdata::

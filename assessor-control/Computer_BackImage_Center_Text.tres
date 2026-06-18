@@ -1,0 +1,9 @@
+[gd_resource type="Theme" format=3 uid="uid://dv1tivx7sl6b6"]
+
+[ext_resource type="FontFile" uid="uid://w3hd8chsmwal" path="res://Font/思源宋体/SOURCEHANSERIFCN-BOLD-2.OTF" id="1_rtyer"]
+[ext_resource type="FontFile" uid="uid://jlh5ibeyb0rw" path="res://Font/思源宋体/SOURCEHANSERIFCN-MEDIUM-6.OTF" id="2_bi5ue"]
+
+[resource]
+RichTextLabel/font_sizes/bold_font_size = 64
+RichTextLabel/fonts/bold_font = ExtResource("1_rtyer")
+RichTextLabel/fonts/normal_font = ExtResource("2_bi5ue")
