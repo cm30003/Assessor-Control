@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://judgeprogram"]
 
 [ext_resource type="Script" uid="uid://xd7dvvrd6e1x" path="res://Script/judge_program.gd" id="1_axh2v"]
+[ext_resource type="PackedScene" uid="uid://db3dpdnuew0fy" path="res://Scene/judgment_page.tscn" id="2_4ve3b"]
 
 [node name="JudgeProgram" type="Control" unique_id=1875725991]
 layout_mode = 3
@@ -11,18 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_axh2v")
 
-[node name="Overlay" type="ColorRect" parent="." unique_id=41243932]
-modulate = Color(0, 0, 0, 0.5)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0, 0, 0, 1)
-
-[node name="Panel" type="Panel" parent="Overlay" unique_id=452376179]
+[node name="Panel" type="Panel" parent="." unique_id=452376179]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,38 +27,41 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 
-[node name="Title" type="Label" parent="Overlay/Panel" unique_id=1505253007]
+[node name="JudgmentPage" parent="Panel" unique_id=1287377230 instance=ExtResource("2_4ve3b")]
 layout_mode = 1
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = 70.0
-theme_override_font_sizes/font_size = 36
+
+[node name="Title" type="Label" parent="Panel" unique_id=1505253007]
+layout_mode = 1
+offset_left = 84.0
+offset_top = 74.0
+offset_right = 180.0
+offset_bottom = 108.0
+theme_override_font_sizes/font_size = 24
 text = "判断程序"
 horizontal_alignment = 1
 
-[node name="CloseButton" type="Button" parent="Overlay/Panel" unique_id=2120368764]
+[node name="Content" type="RichTextLabel" parent="Panel" unique_id=1105408198]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 80.0
+offset_right = 21.0
+offset_bottom = 80.0
+theme_override_font_sizes/normal_font_size = 24
+text = "�жϳ���ģ��
+
+�����￪���ж��߼���صĽ������档"
+
+[node name="CloseButton" type="Button" parent="Panel" unique_id=2120368764]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 300.0
-offset_top = -50.0
-offset_right = -20.0
-offset_bottom = -20.0
+offset_left = 650.0
+offset_top = -426.0
+offset_right = -90.0
+offset_bottom = -384.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 24
 text = "退出"
-
-[node name="Content" type="RichTextLabel" parent="Overlay/Panel" unique_id=1105408198]
-layout_mode = 1
-offset_left = 20.0
-offset_top = 80.0
-offset_right = -20.0
-offset_bottom = -70.0
-theme_override_font_sizes/normal_font_size = 24
-text = "�жϳ���ģ��
-
-�����￪���ж��߼���صĽ������档"

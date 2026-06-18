@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://5o6ynqxtcc44"]
 
-[ext_resource type="Script" path="res://Script/popup_panel.gd" id="1_20lla"]
-
 [node name="PopupPanel" type="Control" unique_id=2144285210]
 layout_mode = 3
 anchors_preset = 15
@@ -10,19 +8,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_20lla")
 
-[node name="Overlay" type="ColorRect" parent="." unique_id=1255224927]
-modulate = Color(0, 0, 0, 0.5)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Panel" type="Panel" parent="Overlay" unique_id=405842480]
+[node name="Panel" type="Panel" parent="." unique_id=405842480]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,7 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 
-[node name="Title" type="Label" parent="Overlay/Panel" unique_id=534403482]
+[node name="Title" type="Label" parent="Panel" unique_id=534403482]
 layout_mode = 1
 offset_left = 20.0
 offset_top = 20.0
@@ -47,22 +34,7 @@ theme_override_font_sizes/font_size = 36
 text = "����"
 horizontal_alignment = 1
 
-[node name="CloseButton" type="Button" parent="Overlay/Panel" unique_id=680972125]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 300.0
-offset_top = -50.0
-offset_right = -20.0
-offset_bottom = -20.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 24
-text = "�ر�"
-
-[node name="Content" type="RichTextLabel" parent="Overlay/Panel" unique_id=117128101]
+[node name="Content" type="RichTextLabel" parent="Panel" unique_id=117128101]
 layout_mode = 1
 offset_left = 20.0
 offset_top = 80.0
@@ -70,3 +42,18 @@ offset_right = -20.0
 offset_bottom = -70.0
 theme_override_font_sizes/normal_font_size = 24
 text = "����"
+
+[node name="CloseButton" type="Button" parent="Panel" unique_id=680972125]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = -62.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "�ر�"
