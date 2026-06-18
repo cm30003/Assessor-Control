@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://opmanual"]
+
+[ext_resource type="Script" uid="uid://c7f7ra1ebwpu7" path="res://Script/operation_manual.gd" id="1_75bcv"]
+
+[node name="OperationManual" type="Control" unique_id=928629088]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_75bcv")
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=2015693707]
+modulate = Color(0, 0, 0, 0.5)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 1)
+
+[node name="Panel" type="Panel" parent="Overlay" unique_id=433569947]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -250.0
+offset_right = 400.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="Title" type="Label" parent="Overlay/Panel" unique_id=1938461687]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 36
+text = "操作手册"
+horizontal_alignment = 1
+
+[node name="CloseButton" type="Button" parent="Overlay/Panel" unique_id=106966744]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = -50.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "退出"
+
+[node name="Content" type="RichTextLabel" parent="Overlay/Panel" unique_id=740821568]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 80.0
+offset_right = -20.0
+offset_bottom = -70.0
+theme_override_font_sizes/normal_font_size = 24
+text = "�����ֲ�ģ��
+
+�����￪������ָ����صĽ������档"

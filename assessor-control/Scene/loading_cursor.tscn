@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dxgmcjltqd158"]
+
+[ext_resource type="Script" uid="uid://drymipm2erhml" path="res://Script/loading_cursor.gd" id="1_byypu"]
+[ext_resource type="Texture2D" uid="uid://cht23gjjdulr8" path="res://2D/加载中.png" id="2_2v1mo"]
+
+[node name="LoadingCursor" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("1_byypu")
+
+[node name="LoadingIcon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("2_2v1mo")
+expand_mode = 1
+stretch_mode = 6
