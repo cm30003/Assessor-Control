@@ -8,13 +8,20 @@
 [ext_resource type="Texture2D" uid="uid://wbx24ji4gaps" path="res://icon.svg" id="4_yx3qh"]
 [ext_resource type="FontFile" uid="uid://clhakv5m88yni" path="res://Font/NanoDyongSong.ttf" id="5_8ku2i"]
 [ext_resource type="Texture2D" uid="uid://cph48m1fxxu7x" path="res://2D/喇叭.png" id="6_kag2x"]
+[ext_resource type="Texture2D" uid="uid://0i1x0t7l6q60" path="res://2D/246注销、关机.png" id="8_8ku2i"]
 
 [sub_resource type="Theme" id="Theme_qtu10"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jkq2"]
-bg_color = Color(0.12, 0.12, 0.12, 0.88)
+bg_color = Color(0.38928655, 0.38928664, 0.38928658, 0.8784314)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dcxdc"]
+bg_color = Color(0.8125393, 0.7913107, 0.75308865, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hgy70"]
+bg_color = Color(0.80784315, 0.7921569, 0.7607843, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee4bf"]
 bg_color = Color(0.69135666, 0.69135696, 0.6913565, 1)
@@ -280,13 +287,64 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -136.0
 offset_top = 10.0
-offset_right = 120.0
+offset_right = -8.0
 offset_bottom = 55.0
 grow_horizontal = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 24
 text = "音量合成器"
 vertical_alignment = 1
+
+[node name="StartPanel" type="Control" parent="." unique_id=641972087]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1608.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Panel" type="Panel" parent="StartPanel" unique_id=1826203959]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dcxdc")
+
+[node name="ShutdownButton" type="Button" parent="StartPanel/Panel" unique_id=1071874203]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = -61.0
+offset_right = 312.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.16924527, 0.1692453, 0.16924527, 1)
+theme_override_colors/font_hover_color = Color(1, 0.3, 0.3, 1)
+theme_override_fonts/font = ExtResource("5_8ku2i")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_hgy70")
+text = "关机"
+icon = ExtResource("8_8ku2i")
+alignment = 0
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="StartPanel/Panel" unique_id=1137115555]
+modulate = Color(0, 0.50773937, 0.85189384, 1)
+self_modulate = Color(6.0644747e-06, 0.5227741, 0.83911103, 1)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 30.0
+grow_vertical = 2
+texture = ExtResource("2_kag2x")
+expand_mode = 1
 
 [node name="Bottom_navigation" type="TextureRect" parent="." unique_id=492753379]
 modulate = Color(0.47397548, 0.47397578, 0.47397572, 1)

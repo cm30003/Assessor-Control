@@ -22,6 +22,7 @@ var _is_loading := false
 
 # --- 音量面板 ---
 const PANEL_HEIGHT := 250.0
+const START_PANEL_HEIGHT := 61.0
 const BOTTOM_BAR_HEIGHT := 80.0
 
 var _is_audio_panel_open := false
@@ -30,6 +31,11 @@ var _is_audio_panel_open := false
 @onready var _master_slider: HSlider = $AudioPanel/Panel/MarginContainer/VBoxContainer/MasterRow/Slider
 @onready var _bgm_slider: HSlider = $AudioPanel/Panel/MarginContainer/VBoxContainer/BgmRow/Slider
 @onready var _sfx_slider: HSlider = $AudioPanel/Panel/MarginContainer/VBoxContainer/SfxRow/Slider
+
+# --- 开始菜单面板 ---
+var _is_start_panel_open := false
+
+@onready var _start_panel: Control = $StartPanel
 
 func _ready():
 	#播放背景音乐
@@ -54,6 +60,10 @@ func _ready():
 
 	# 连接音量开关按钮
 	$Bottom_navigation/Audio.pressed.connect(_toggle_audio_panel)
+	# 连接开始菜单按钮
+	$Bottom_navigation/Start.pressed.connect(_toggle_start_panel)
+	# 连接关机按钮
+	$StartPanel/Panel/ShutdownButton.pressed.connect(_on_shutdown_pressed)
 	# 连接音量滑块
 	_master_slider.value_changed.connect(_on_master_volume_changed)
 	_bgm_slider.value_changed.connect(_on_bgm_volume_changed)
@@ -157,3 +167,32 @@ func _on_bgm_volume_changed(value: float):
 func _on_sfx_volume_changed(value: float):
 	print("sfx",value)
 	AudioManager.set_volume(AudioManager.Bus.SFX, value)
+
+
+# ========== 开始菜单面板 ==========
+
+func _toggle_start_panel():
+	if _is_start_panel_open:
+		_close_start_panel()
+	else:
+		_open_start_panel()
+
+
+func _open_start_panel():
+	_is_start_panel_open = true
+	var tween = create_tween()
+	tween.set_parallel()
+	tween.tween_property(_start_panel, "offset_top", -(START_PANEL_HEIGHT + BOTTOM_BAR_HEIGHT), 0.25).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(_start_panel, "offset_bottom", -BOTTOM_BAR_HEIGHT, 0.25).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+
+
+func _close_start_panel():
+	_is_start_panel_open = false
+	var tween = create_tween()
+	tween.set_parallel()
+	tween.tween_property(_start_panel, "offset_top", 0.0, 0.25).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(_start_panel, "offset_bottom", START_PANEL_HEIGHT, 0.25).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+
+
+func _on_shutdown_pressed():
+	get_tree().quit()
