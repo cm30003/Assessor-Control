@@ -1,5 +1,8 @@
 extends Control
-
+#加载BGM
+@export var bgm_1:AudioStream
+#加载音效
+@export var sfx_MouseClick:AudioStream
 # 加载中光标场景（旋转动画图标）
 const LOADING_CURSOR = preload("res://Scene/loading_cursor.tscn")
 
@@ -14,8 +17,20 @@ const SCENE_MAP = {
 # 是否正在加载中（防止双击重复触发）
 var _is_loading := false
 
+# 底部导航栏的日期时间标签
+@onready var _date_time_label: Label = $Bottom_navigation/DateTimeLabel
 
 func _ready():
+	#播放背景音乐
+	AudioManager.play_music(bgm_1)
+	# 初始化日期时间显示，并启动每秒刷新
+	_update_date_time()
+	var timer := Timer.new()
+	timer.timeout.connect(_update_date_time)
+	timer.wait_time = 1.0
+	timer.autostart = true
+	add_child(timer)
+
 	# 遍历 VBoxContainer 下的所有子节点，为每个图标绑定双击事件
 	for child in $VBoxContainer.get_children():
 		if child is TextureRect:
@@ -27,11 +42,20 @@ func _ready():
 			child.gui_input.connect(_on_item_double_click.bind(child))
 
 
+# 更新底部导航栏右侧的日期时间显示（上段时间，下段日期）
+func _update_date_time():
+	var now := Time.get_datetime_dict_from_system()
+	var time_str := "%02d:%02d:%02d" % [now.hour, now.minute, now.second]
+	var date_str := "%04d-%02d-%02d" % [now.year, now.month, now.day]
+	_date_time_label.text = "%s\n%s" % [time_str, date_str]
+
+
 # 处理双击事件
 func _on_item_double_click(event: InputEvent, item: TextureRect):
 	if _is_loading:
 		return
 	if event is InputEventMouseButton and event.pressed and event.double_click:
+		AudioManager.play_sfx(sfx_MouseClick)
 		_is_loading = true
 		var item_name = _get_item_name(item)
 		if item_name == "":
