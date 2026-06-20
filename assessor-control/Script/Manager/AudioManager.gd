@@ -5,8 +5,7 @@ enum Bus{
 	BGM,
 	SFX,
 }
-
-const Music_BUS="Music"
+const Music_BUS="BGM"
 const SFX_BUS="SFX"
 
 ##音乐播放器配置
@@ -22,8 +21,22 @@ var sfx_audio_player_count:int = 6
 var sfx_players:Array[AudioStreamPlayer]
 
 func _ready() -> void:
+	_ensure_buses_exist()
 	init_music_audio_manager()
 	init_sfx_audio_manager()
+
+##确保音频总线存在（Master / BGM / SFX）
+func _ensure_buses_exist()->void:
+	if AudioServer.get_bus_index(Music_BUS)==-1:
+		AudioServer.add_bus()
+		var idx:=AudioServer.bus_count-1
+		AudioServer.set_bus_name(idx,Music_BUS)
+		AudioServer.set_bus_volume_db(idx,linear_to_db(0.5))
+	if AudioServer.get_bus_index(SFX_BUS)==-1:
+		AudioServer.add_bus()
+		var idx:=AudioServer.bus_count-1
+		AudioServer.set_bus_name(idx,SFX_BUS)
+		AudioServer.set_bus_volume_db(idx,linear_to_db(0.5))
 
 ##初始化音乐播放器
 func init_music_audio_manager() ->void:
@@ -40,7 +53,7 @@ func play_music(_audio:AudioStream)->void:
 	var current_audio_player:=music_players[current_music_player_index]
 	if current_audio_player.stream==_audio:
 		return
-	var empty_audio_player_index=0 if current_music_player_index==1 else 0
+	var empty_audio_player_index= 0 if current_music_player_index== 1 else 0
 	var empty_audio_player:=music_players[empty_audio_player_index]
 	current_audio_player.stop()
 	current_audio_player.stream=null
@@ -65,3 +78,7 @@ func play_sfx(_audio:AudioStream)->void:
 			sfx_audio_player.stream=_audio
 			sfx_audio_player.play()
 			break
+##设定/修改音量
+func set_volume(bus_index:Bus,v:float)->void:
+	var db=linear_to_db(v)
+	AudioServer.set_bus_volume_db(bus_index,db)

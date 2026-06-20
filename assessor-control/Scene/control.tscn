@@ -11,6 +11,11 @@
 
 [sub_resource type="Theme" id="Theme_qtu10"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jkq2"]
+bg_color = Color(0.12, 0.12, 0.12, 0.88)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee4bf"]
 bg_color = Color(0.69135666, 0.69135696, 0.6913565, 1)
 shadow_size = 5
@@ -173,6 +178,116 @@ text = "禁止打开"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AudioPanel" type="Control" parent="." unique_id=568220988]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1576.0
+offset_right = -17.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Panel" type="Panel" parent="AudioPanel" unique_id=1525353689]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -7.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8jkq2")
+
+[node name="MarginContainer" type="MarginContainer" parent="AudioPanel/Panel" unique_id=1173761493]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AudioPanel/Panel/MarginContainer" unique_id=328546569]
+layout_mode = 2
+theme_override_constants/separation = 42
+
+[node name="MasterRow" type="HBoxContainer" parent="AudioPanel/Panel/MarginContainer/VBoxContainer" unique_id=1572522809]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AudioPanel/Panel/MarginContainer/VBoxContainer/MasterRow" unique_id=1824075373]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 20
+text = "总音量"
+vertical_alignment = 1
+
+[node name="Slider" type="HSlider" parent="AudioPanel/Panel/MarginContainer/VBoxContainer/MasterRow" unique_id=693758353]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="BgmRow" type="HBoxContainer" parent="AudioPanel/Panel/MarginContainer/VBoxContainer" unique_id=388859676]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AudioPanel/Panel/MarginContainer/VBoxContainer/BgmRow" unique_id=26604579]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 20
+text = "BGM音量"
+vertical_alignment = 1
+
+[node name="Slider" type="HSlider" parent="AudioPanel/Panel/MarginContainer/VBoxContainer/BgmRow" unique_id=408411382]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SfxRow" type="HBoxContainer" parent="AudioPanel/Panel/MarginContainer/VBoxContainer" unique_id=157873017]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AudioPanel/Panel/MarginContainer/VBoxContainer/SfxRow" unique_id=1453316758]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 20
+text = "音效音量"
+vertical_alignment = 1
+
+[node name="Slider" type="HSlider" parent="AudioPanel/Panel/MarginContainer/VBoxContainer/SfxRow" unique_id=1462177140]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Label" type="Label" parent="AudioPanel/Panel" unique_id=900614151]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.0
+offset_top = 10.0
+offset_right = 120.0
+offset_bottom = 55.0
+grow_horizontal = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "音量合成器"
+vertical_alignment = 1
+
 [node name="Bottom_navigation" type="TextureRect" parent="." unique_id=492753379]
 modulate = Color(0.47397548, 0.47397578, 0.47397572, 1)
 layout_mode = 1
@@ -200,7 +315,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("5_8ku2i")
 theme_override_font_sizes/font_size = 26
-text = "15：32
+text = "15:32
 2026-6-20"
 horizontal_alignment = 2
 vertical_alignment = 1

@@ -20,6 +20,17 @@ var _is_loading := false
 # 底部导航栏的日期时间标签
 @onready var _date_time_label: Label = $Bottom_navigation/DateTimeLabel
 
+# --- 音量面板 ---
+const PANEL_HEIGHT := 250.0
+const BOTTOM_BAR_HEIGHT := 80.0
+
+var _is_audio_panel_open := false
+
+@onready var _audio_panel: Control = $AudioPanel
+@onready var _master_slider: HSlider = $AudioPanel/Panel/MarginContainer/VBoxContainer/MasterRow/Slider
+@onready var _bgm_slider: HSlider = $AudioPanel/Panel/MarginContainer/VBoxContainer/BgmRow/Slider
+@onready var _sfx_slider: HSlider = $AudioPanel/Panel/MarginContainer/VBoxContainer/SfxRow/Slider
+
 func _ready():
 	#播放背景音乐
 	AudioManager.play_music(bgm_1)
@@ -41,6 +52,16 @@ func _ready():
 			# 连接双击输入事件
 			child.gui_input.connect(_on_item_double_click.bind(child))
 
+	# 连接音量开关按钮
+	$Bottom_navigation/Audio.pressed.connect(_toggle_audio_panel)
+	# 连接音量滑块
+	_master_slider.value_changed.connect(_on_master_volume_changed)
+	_bgm_slider.value_changed.connect(_on_bgm_volume_changed)
+	_sfx_slider.value_changed.connect(_on_sfx_volume_changed)
+	# 初始化滑块值为当前总线音量
+	_master_slider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
+	_bgm_slider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("BGM")))
+	_sfx_slider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
 
 # 更新底部导航栏右侧的日期时间显示（上段时间，下段日期）
 func _update_date_time():
@@ -55,13 +76,13 @@ func _on_item_double_click(event: InputEvent, item: TextureRect):
 	if _is_loading:
 		return
 	if event is InputEventMouseButton and event.pressed and event.double_click:
-		AudioManager.play_sfx(sfx_MouseClick)
 		_is_loading = true
 		var item_name = _get_item_name(item)
 		if item_name == "":
 			_is_loading = false
 			return
 		await _start_loading(item_name)
+		AudioManager.play_sfx(sfx_MouseClick)
 		_is_loading = false
 
 
@@ -97,3 +118,42 @@ func _open_item_scene(item_name: String):
 
 	var instance = scene.instantiate()
 	add_child(instance)
+
+
+# ========== 音量面板 ==========
+
+## 切换音量面板展开/收起（带滑入/滑出动画）
+func _toggle_audio_panel():
+	if _is_audio_panel_open:
+		_close_audio_panel()
+	else:
+		_open_audio_panel()
+
+
+func _open_audio_panel():
+	_is_audio_panel_open = true
+	var tween = create_tween()
+	tween.set_parallel()
+	tween.tween_property(_audio_panel, "offset_top", -(PANEL_HEIGHT + BOTTOM_BAR_HEIGHT), 0.25).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(_audio_panel, "offset_bottom", -BOTTOM_BAR_HEIGHT, 0.25).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+
+
+func _close_audio_panel():
+	_is_audio_panel_open = false
+	var tween = create_tween()
+	tween.set_parallel()
+	tween.tween_property(_audio_panel, "offset_top", 0.0, 0.25).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(_audio_panel, "offset_bottom", PANEL_HEIGHT, 0.25).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+
+
+func _on_master_volume_changed(value: float):
+	print("master",value)
+	AudioManager.set_volume(AudioManager.Bus.MASTER, value)
+
+func _on_bgm_volume_changed(value: float):
+	print("bgm",value)
+	AudioManager.set_volume(AudioManager.Bus.BGM, value)
+
+func _on_sfx_volume_changed(value: float):
+	print("sfx",value)
+	AudioManager.set_volume(AudioManager.Bus.SFX, value)
