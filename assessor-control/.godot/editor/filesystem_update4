@@ -1,5 +1,5 @@
 res://Script/control.gd
-res://Scene/control.tscn
-res://Scene/operation_manual.tscn
 res://Script/Manager/AudioManager.gd
-res://Scene/forbidden_access.tscn
+res://Scene/info_library.tscn
+res://Script/info_library.gd
+res://Scene/control.tscn

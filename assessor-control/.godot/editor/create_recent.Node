@@ -1,6 +1,9 @@
+Panel
 TextureRect
-AudioStreamPlayer
 Label
+LineEdit
+Line2D
 Button
+AudioStreamPlayer
 RichTextLabel
 VBoxContainer
