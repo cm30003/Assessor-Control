@@ -34,7 +34,7 @@ offset_top = 36.0
 offset_right = 124.0
 offset_bottom = 86.0
 theme_override_font_sizes/font_size = 24
-text = "操作手册"
+text = "邮件箱"
 horizontal_alignment = 1
 
 [node name="Content" type="RichTextLabel" parent="Panel" unique_id=740821568]
@@ -48,10 +48,13 @@ text = "�����ֲ�ģ��
 
 �����￪������ָ����صĽ������档"
 
-[node name="JudgmentPage" parent="Panel" unique_id=584454437 instance=ExtResource("2_uhn02")]
+[node name="OperationPage" parent="Panel" unique_id=584454437 instance=ExtResource("2_uhn02")]
 layout_mode = 1
-total_items = 6
-auto_jump = true
+offset_left = 8.0
+offset_top = 79.0
+offset_right = 8.0
+offset_bottom = 79.0
+scale = Vector2(0.75, 0.65)
 
 [node name="CloseButton" type="Button" parent="Panel" unique_id=106966744]
 layout_mode = 1

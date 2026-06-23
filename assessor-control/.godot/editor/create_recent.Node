@@ -1,9 +1,11 @@
-Panel
+VBoxContainer
 TextureRect
 Label
+ScrollContainer
+HBoxContainer
+Panel
 LineEdit
 Line2D
 Button
 AudioStreamPlayer
 RichTextLabel
-VBoxContainer

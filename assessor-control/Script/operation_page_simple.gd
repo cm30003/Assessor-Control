@@ -7,11 +7,20 @@ extends Control
 @export var total_items: int = 6
 @export var auto_jump: bool = true
 
-# ---- 节点引用 ----
+# ---- 节点引用：左边邮箱列表按钮 ----
+@onready var email_1: Button = $ItemList/Email1
+@onready var email_2: Button = $ItemList/Email2
+@onready var email_3: Button = $ItemList/Email3
+@onready var email_4: Button = $ItemList/Email4
+@onready var email_5: Button = $ItemList/Email5
+@onready var email_6: Button = $ItemList/Email6
+
+# 用数组管理，方便循环处理
+var email_buttons: Array[Button] = []
+
+# ---- 节点引用：右边内容区 ----
 @onready var progress_container: HBoxContainer = $VBoxContainer/ProgressBarContainer
 @onready var current_label: Label = $VBoxContainer/CurrentLabel
-@onready var left_arrow: Button = $VBoxContainer/ButtonContainer/LeftArrow
-@onready var right_arrow: Button = $VBoxContainer/ButtonContainer/RightArrow
 @onready var content_image: TextureRect = $VBoxContainer/ContentContainer/MarginContainer/VBoxContainer/ContentImage
 @onready var content_text: Label = $VBoxContainer/ContentContainer/MarginContainer/VBoxContainer/ContentText
 @onready var submit_btn: Button = $VBoxContainer/ButtonContainer/SubmitButton
@@ -40,30 +49,24 @@ var item_data: Array[Dictionary] = [
 ]
 
 func _ready():
+	# 初始化按钮数组
+	email_buttons = [email_1, email_2, email_3, email_4, email_5, email_6]
+	
 	_connect_signals()
 	_update_all()
 
 
 func _connect_signals():
-	left_arrow.pressed.connect(_on_left)
-	right_arrow.pressed.connect(_on_right)
-
+	# 连接6个邮箱按钮
+	for i in range(email_buttons.size()):
+		email_buttons[i].pressed.connect(_on_email_pressed.bind(i + 1))
+	
 
 # ========== 更新显示 ==========
 func _update_all():
-	_update_label()
 	_update_content()
-	_update_buttons()
+	_update_email_buttons()  # 刷新按钮状态
 
-
-func _tween_scale(node: Node, target: Vector2, duration: float = 0.25):
-	var tween = create_tween()
-	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.set_ease(Tween.EASE_OUT)
-	tween.tween_property(node, "scale", target, duration)
-
-func _update_label():
-	current_label.text = "当前为第" + _to_chinese(current_index) + "条信息"
 
 func _update_content():
 	if current_index <= item_data.size():
@@ -72,23 +75,38 @@ func _update_content():
 		var path = data.get("img", "")
 		content_image.texture = load(path) if ResourceLoader.exists(path) else null
 
-func _update_buttons():
-	left_arrow.disabled = current_index <= 1
-	right_arrow.disabled = current_index >= total_items
+# 刷新邮箱按钮的显示状态
+func _update_email_buttons():
+	for i in range(email_buttons.size()):
+		var btn = email_buttons[i]
+		var index = i + 1
+		
+		# 基础文本
+		var btn_text = "第" + _to_chinese(index) + "条"
+		
+		# 已判断的标记
+		if judgments.has(index):
+			var status = "安全" if judgments[index] == "safe" else "异常"
+			btn_text += " [" + status + "]"
+			btn.modulate = C_GREEN if judgments[index] == "safe" else C_RED
+		else:
+			btn.modulate = C_GRAY  # 未判断灰色
+		
+		# 当前选中高亮
+		if index == current_index:
+			btn.modulate = C_CURRENT
+			btn_text += " ←"  # 标记当前项
+		
+		btn.text = btn_text
 
 
+# ========== 邮箱按钮回调 ==========
+func _on_email_pressed(index: int):
+	current_index = index
+	_update_all()
 
-# ========== 按钮回调 ==========
-func _on_left():
-	if current_index > 1:
-		current_index -= 1
-		_update_all()
 
-func _on_right():
-	if current_index < total_items:
-		current_index += 1
-		_update_all()
-
+# ========== 判断按钮回调 ==========
 func _on_safe():
 	_judge("safe")
 
@@ -99,12 +117,13 @@ func _judge(result: String):
 	# 记录/覆盖判断结果
 	judgments[current_index] = result
 
-	# 闪烁动画
-	var bar = progress_bars[current_index - 1]
-	var target_color = C_GREEN if result == "safe" else C_RED
-	var tween = create_tween()
-	tween.tween_property(bar, "modulate", Color(2, 2, 2), 0.1)
-	tween.tween_property(bar, "modulate", target_color, 0.2)
+	# 进度条闪烁动画（如果有）
+	if progress_bars.size() >= current_index:
+		var bar = progress_bars[current_index - 1]
+		var target_color = C_GREEN if result == "safe" else C_RED
+		var tween = create_tween()
+		tween.tween_property(bar, "modulate", Color(2, 2, 2), 0.1)
+		tween.tween_property(bar, "modulate", target_color, 0.2)
 
 	# 自动跳转
 	if auto_jump:

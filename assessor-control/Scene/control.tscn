@@ -154,7 +154,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("5_8ku2i")
 theme_override_font_sizes/font_size = 32
-text = "操作手册"
+text = "邮箱"
 horizontal_alignment = 1
 vertical_alignment = 1
 

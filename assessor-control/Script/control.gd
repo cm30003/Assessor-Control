@@ -10,7 +10,7 @@ const LOADING_CURSOR = preload("res://Scene/loading_cursor.tscn")
 const SCENE_MAP = {
 	"判断程序": preload("res://Scene/judge_program.tscn"),
 	"信息库": preload("res://Scene/info_library.tscn"),
-	"操作手册": preload("res://Scene/operation_manual.tscn"),
+	"邮箱": preload("res://Scene/operation_manual.tscn"),
 	"禁止打开": preload("res://Scene/forbidden_access.tscn"),
 }
 

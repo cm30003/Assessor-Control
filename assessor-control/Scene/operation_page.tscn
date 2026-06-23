@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://5dnu3v6ljvqu" path="res://Script/operation_page_simple.gd" id="1_pi2ps"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_arrow"]
+bg_color = Color(0.8, 0.8, 0.8, 0.5)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_content"]
 bg_color = Color(0.98, 0.97, 0.94, 1)
 border_width_left = 1
@@ -14,13 +21,6 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_arrow"]
-bg_color = Color(0.8, 0.8, 0.8, 0.5)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
 [node name="OperationPage" type="Control" unique_id=584454437]
 layout_mode = 3
 anchors_preset = 15
@@ -29,28 +29,66 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pi2ps")
-total_items = null
-auto_jump = null
+
+[node name="ItemList" type="VBoxContainer" parent="." unique_id=920460954]
+propagate_maximum_size = false
+layout_mode = 0
+offset_left = 22.0
+offset_top = 38.0
+offset_right = 372.0
+offset_bottom = 262.0
+scale = Vector2(0.935, 2)
+theme_override_constants/separation = 4
+
+[node name="Email1" type="Button" parent="ItemList" unique_id=264112688]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_arrow")
+text = "Email1"
+
+[node name="Email2" type="Button" parent="ItemList" unique_id=1651672608]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_arrow")
+text = "  ◀  "
+
+[node name="Email3" type="Button" parent="ItemList" unique_id=1039783539]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_arrow")
+text = "  ◀  "
+
+[node name="Email4" type="Button" parent="ItemList" unique_id=462382124]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_arrow")
+text = "  ◀  "
+
+[node name="Email5" type="Button" parent="ItemList" unique_id=1835783578]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_arrow")
+text = "  ◀  "
+
+[node name="Email6" type="Button" parent="ItemList" unique_id=806943931]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_arrow")
+text = "  ▶  "
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2072062637]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 30.0
-offset_top = 30.0
-offset_right = -30.0
-offset_bottom = -30.0
+offset_left = 398.0
+offset_top = 38.0
+offset_right = 338.0
+offset_bottom = -22.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.8, 1)
 theme_override_constants/separation = 20
-
-[node name="CurrentLabel" type="Label" parent="VBoxContainer" unique_id=2068390813]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
-theme_override_font_sizes/font_size = 20
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="ContentContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1827374420]
 layout_mode = 2
@@ -74,20 +112,3 @@ layout_mode = 2
 size_flags_vertical = 3
 expand_mode = 3
 stretch_mode = 5
-
-[node name="ButtonContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1826772216]
-layout_mode = 2
-theme_override_constants/separation = 40
-alignment = 1
-
-[node name="LeftArrow" type="Button" parent="VBoxContainer/ButtonContainer" unique_id=264112688]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_arrow")
-text = "  ◀  "
-
-[node name="RightArrow" type="Button" parent="VBoxContainer/ButtonContainer" unique_id=806943931]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_arrow")
-text = "  ▶  "
