@@ -186,6 +186,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AudioPanel" type="Control" parent="." unique_id=568220988]
+z_index = 1
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -296,6 +297,7 @@ text = "音量合成器"
 vertical_alignment = 1
 
 [node name="StartPanel" type="Control" parent="." unique_id=641972087]
+z_index = 1
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0

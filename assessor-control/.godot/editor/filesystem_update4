@@ -1,5 +1,5 @@
-res://Script/control.gd
-res://Script/Manager/AudioManager.gd
 res://Scene/info_library.tscn
+res://Script/control.gd
 res://Script/info_library.gd
+res://Script/Manager/AudioManager.gd
 res://Scene/control.tscn

@@ -66,7 +66,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_1xeu8")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxEmpty_abcd")
-text = "<返回"
+text = "< 返回"
 
 [node name="Quit_Button" type="Button" parent="Panel/Top_Line" unique_id=1471867864]
 layout_mode = 1
@@ -101,16 +101,16 @@ theme_override_font_sizes/font_size = 32
 text = "信息库"
 vertical_alignment = 1
 
-[node name="SearchHBox" type="Panel" parent="Panel" unique_id=222030933]
+[node name="SearchHBox" type="Panel" parent="Panel" unique_id=1801982136]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -400.0
+offset_left = -600.0
 offset_top = -50.0
-offset_right = 400.0
+offset_right = 600.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -122,9 +122,9 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 10.0
+offset_left = 25.0
 offset_top = -27.5
-offset_right = 65.0
+offset_right = 80.0
 offset_bottom = 27.5
 grow_vertical = 2
 size_flags_vertical = 4
@@ -133,15 +133,11 @@ expand_mode = 1
 
 [node name="LineEdit" type="LineEdit" parent="Panel/SearchHBox" unique_id=1834567891]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -306.0
-offset_top = -29.0
-offset_right = 366.0
-offset_bottom = 29.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_right = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -168,7 +164,9 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_mode = 2
 theme_override_colors/default_color = Color(0.038397167, 0.038397167, 0.03839716, 1)
 theme_override_font_sizes/normal_font_size = 24
 fit_content = true
 autowrap_mode = 2
+selection_enabled = true
