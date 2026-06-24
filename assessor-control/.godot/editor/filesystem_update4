@@ -1,5 +1,2 @@
-res://Scene/operation_manual.tscn
-res://Scene/operation_page.tscn
-res://Script/operation_page_simple.gd
-res://Scene/control.tscn
 res://Script/control.gd
+res://Scene/control.tscn

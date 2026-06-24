@@ -1,5 +1,5 @@
-VBoxContainer
 TextureRect
+VBoxContainer
 Label
 ScrollContainer
 HBoxContainer

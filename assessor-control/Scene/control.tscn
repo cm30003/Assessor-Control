@@ -6,9 +6,14 @@
 [ext_resource type="Theme" uid="uid://dv1tivx7sl6b6" path="res://Computer_BackImage_Center_Text.tres" id="3_s61rb"]
 [ext_resource type="AudioStream" uid="uid://gs3g3q352j0f" path="res://Audio/SFX/XP电脑_双击.wav" id="3_yx3qh"]
 [ext_resource type="Texture2D" uid="uid://wbx24ji4gaps" path="res://icon.svg" id="4_yx3qh"]
+[ext_resource type="Texture2D" uid="uid://dq7ixtwviuwoh" path="res://2D/283AF8FCA3B9C4B0634A38232DD3CA74.png" id="5_0ywqd"]
 [ext_resource type="FontFile" uid="uid://clhakv5m88yni" path="res://Font/NanoDyongSong.ttf" id="5_8ku2i"]
+[ext_resource type="Texture2D" uid="uid://onlt6tnji741" path="res://2D/桌面图标 信息库@3x.png" id="6_0ywqd"]
 [ext_resource type="Texture2D" uid="uid://cph48m1fxxu7x" path="res://2D/喇叭.png" id="6_kag2x"]
 [ext_resource type="Texture2D" uid="uid://0i1x0t7l6q60" path="res://2D/246注销、关机.png" id="8_8ku2i"]
+[ext_resource type="Texture2D" uid="uid://caaqk4h5ni5pl" path="res://2D/桌面图标 资料库 10X10.png" id="8_efncq"]
+[ext_resource type="Texture2D" uid="uid://b7jssxls7qjpn" path="res://2D/桌面图标 邮箱.png" id="9_vwb26"]
+[ext_resource type="Texture2D" uid="uid://dk4qtallwh4sq" path="res://2D/桌面图标 禁止.png" id="10_immvg"]
 
 [sub_resource type="Theme" id="Theme_qtu10"]
 
@@ -42,7 +47,7 @@ bgm_1 = ExtResource("2_s61rb")
 sfx_MouseClick = ExtResource("3_yx3qh")
 
 [node name="BackImage" type="TextureRect" parent="." unique_id=1051163660]
-modulate = Color(1.2513996e-06, 0.4768315, 0.47683132, 1)
+modulate = Color(0.007843138, 0.003921569, 0.49803922, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,15 +57,33 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_kag2x")
 
+[node name="Logo" type="TextureRect" parent="BackImage" unique_id=1273278165]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -390.0
+offset_right = 256.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_0ywqd")
+
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1344881345]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 600.0
+offset_bottom = -224.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_s61rb")
-theme_override_font_sizes/normal_font_size = 128
+theme_override_colors/default_color = Color(0.9413647, 0.9413647, 0.94136465, 1)
+theme_override_font_sizes/normal_font_size = 100
 text = "凝聚意志，保卫人类"
 tab_size = 24
 horizontal_alignment = 1
@@ -81,10 +104,10 @@ theme = SubResource("Theme_qtu10")
 theme_override_constants/separation = 150
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=1677527284]
-custom_minimum_size = Vector2(90, 90)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("4_yx3qh")
+texture = ExtResource("6_0ywqd")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/TextureRect" unique_id=1554735662]
@@ -107,10 +130,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="VBoxContainer" unique_id=1961606805]
-custom_minimum_size = Vector2(90, 90)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("4_yx3qh")
+texture = ExtResource("8_efncq")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/TextureRect2" unique_id=1197197160]
@@ -133,10 +156,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect3" type="TextureRect" parent="VBoxContainer" unique_id=731073999]
-custom_minimum_size = Vector2(90, 90)
+custom_minimum_size = Vector2(100, 70)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("4_yx3qh")
+texture = ExtResource("9_vwb26")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/TextureRect3" unique_id=1809441810]
@@ -159,10 +182,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect4" type="TextureRect" parent="VBoxContainer" unique_id=812308924]
-custom_minimum_size = Vector2(90, 90)
+custom_minimum_size = Vector2(100, 80)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("4_yx3qh")
+texture = ExtResource("10_immvg")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/TextureRect4" unique_id=1590614884]

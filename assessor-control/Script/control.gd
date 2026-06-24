@@ -128,6 +128,8 @@ func _open_item_scene(item_name: String):
 
 	var instance = scene.instantiate()
 	add_child(instance)
+	# 将新页面移至底部导航栏下方，确保底栏始终可交互
+	move_child(instance, $Bottom_navigation.get_index())
 
 
 # ========== 音量面板 ==========
