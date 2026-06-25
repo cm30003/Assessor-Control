@@ -1,4 +1,2 @@
 res://Scene/control.tscn
-res://Script/control.gd
-res://Scene/info_library.tscn
-res://Script/info_library.gd
+res://Shader/Televison.tres

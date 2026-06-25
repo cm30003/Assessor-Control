@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://caaqk4h5ni5pl" path="res://2D/桌面图标 资料库 10X10.png" id="8_efncq"]
 [ext_resource type="Texture2D" uid="uid://b7jssxls7qjpn" path="res://2D/桌面图标 邮箱.png" id="9_vwb26"]
 [ext_resource type="Texture2D" uid="uid://dk4qtallwh4sq" path="res://2D/桌面图标 禁止.png" id="10_immvg"]
+[ext_resource type="Material" uid="uid://bvi7j1kuh1331" path="res://Shader/Televison.tres" id="15_efncq"]
 
 [sub_resource type="Theme" id="Theme_qtu10"]
 
@@ -80,8 +81,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 600.0
-offset_bottom = -224.0
+offset_top = 640.0
+offset_bottom = -251.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_s61rb")
@@ -411,9 +412,9 @@ layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 5.0
-offset_top = 6.0
+offset_top = 5.0
 offset_right = 225.0
-offset_bottom = -4.0
+offset_bottom = -5.0
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.22430372, 0.22430426, 0.22430387, 1)
 theme_override_constants/h_separation = 0
@@ -484,3 +485,14 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_2dd1r")
 icon = ExtResource("10_immvg")
 icon_alignment = 1
 expand_icon = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=262115113]
+material = ExtResource("15_efncq")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1

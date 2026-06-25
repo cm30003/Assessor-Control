@@ -1,5 +1,5 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1782379989
+::res://::1782394883
 Computer_BackImage_Center_Text.tres::Theme::8688070638296649845::1781940086::0::1::::<><><>0<>0<><>::uid://w3hd8chsmwal::::res://Font/思源宋体/SOURCEHANSERIFCN-BOLD-2.OTF<>uid://jlh5ibeyb0rw::::res://Font/思源宋体/SOURCEHANSERIFCN-MEDIUM-6.OTF
 icon.svg::CompressedTexture2D::1547665182542700496::1781940086::1781940219::1::::<><><>0<>0<>3399fab14510100f4ab9aeb9f6e7a6f3<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://2D/::1782380647
@@ -588,12 +588,12 @@ event_text.gd::GDScript::7199229198122971661::1782354400::0::1::::DialogicTextEv
 icon.svg::CompressedTexture2D::9151163472776694991::1782354400::1782355870::1::::<><><>0<>0<>0fe1b3b3cf3733ead1d66ddc5726114c<>res://.godot/imported/icon.svg-e2501ddcdef01c7f2c3538940f5abfc1.ctex::
 index.gd::GDScript::3735692247776249690::1782354400::0::1::::<>DialogicIndexer<><>0<>1<><>::
 manual_advance.gd::GDScript::7278833021501408885::1782354400::0::1::::DialogicManualAdvance<>RefCounted<><>0<>0<><>::
-node_dialog_text.gd::GDScript::8367256849905527338::1782354400::0::1::::DialogicNode_DialogText<>RichTextLabel<><>0<>1<><>::
+node_dialog_text.gd::GDScript::8367256849905527338::1782354400::0::1::::DialogicNode_DialogText<>RichTextLabel<>res://addons/dialogic/Modules/Text/node_dialog_text_icon.svg<>0<>1<><>::
 node_dialog_text_icon.svg::CompressedTexture2D::4044689466443943908::1782354400::1782355870::1::::<><><>0<>0<>0854d1eb256c2d7e9186a18e71c67bd8<>res://.godot/imported/node_dialog_text_icon.svg-3cf845e99d76137d8156865c09f39e3e.ctex::
 node_input.gd::GDScript::6135746528022206122::1782354400::0::1::::DialogicNode_Input<>Control<><>0<>0<><>::
-node_name_label.gd::GDScript::2409060177523604634::1782354400::0::1::::DialogicNode_NameLabel<>Label<><>0<>0<><>::
+node_name_label.gd::GDScript::2409060177523604634::1782354400::0::1::::DialogicNode_NameLabel<>Label<>res://addons/dialogic/Modules/Text/node_name_label_icon.svg<>0<>0<><>::
 node_name_label_icon.svg::CompressedTexture2D::753910208124862534::1782354400::1782355870::1::::<><><>0<>0<>a4c8bf4be7c45d309f0f460f60daff16<>res://.godot/imported/node_name_label_icon.svg-d482939b74b41ec2da6edc97e41c8bf8.ctex::
-node_next_indicator.gd::GDScript::8643102605516753138::1782354400::0::1::::DialogicNode_NextIndicator<>Control<><>0<>0<><>::
+node_next_indicator.gd::GDScript::8643102605516753138::1782354400::0::1::::DialogicNode_NextIndicator<>Control<>res://addons/dialogic/Modules/Text/node_next_indicator_icon.svg<>0<>0<><>::
 node_next_indicator_icon.svg::CompressedTexture2D::302873534409359568::1782354400::1782355870::1::::<><><>0<>0<>b19c8f494620393de69e28f29117e8d0<>res://.godot/imported/node_next_indicator_icon.svg-06167a3b3e290941c1c34386ebd60af8.ctex::
 node_type_sound.gd::GDScript::8257091630640999901::1782354400::0::1::::DialogicNode_TypeSounds<>AudioStreamPlayer<><>0<>1<><>::
 settings_text.gd::GDScript::5031029662621467051::1782354400::0::1::::<>DialogicSettingsPage<><>0<>1<><>::
@@ -636,7 +636,7 @@ event_wait_input.gd::GDScript::2473881298755643258::1782354400::0::1::::Dialogic
 icon.svg::CompressedTexture2D::2766149336681406939::1782354400::1782355870::1::::<><><>0<>0<>35002bf1f4e75410313770867b7720c7<>res://.godot/imported/icon.svg-cb8e50b081a310c64183b12c6d12fcf2.ctex::
 index.gd::GDScript::971839668851566764::1782354400::0::1::::<>DialogicIndexer<><>0<>1<><>::
 ::res://addons/dialogic/Resources/::1782354400
-character.gd::GDScript::8170509915016804394::1782354400::0::1::::DialogicCharacter<>Resource<><>0<>1<><>::
+character.gd::GDScript::8170509915016804394::1782354400::0::1::::DialogicCharacter<>Resource<>uid://bbea0efx0ybu7<>0<>1<><>::
 CharacterResourceLoader.gd::GDScript::3230683283296700613::1782354400::0::1::::DialogicCharacterFormatLoader<>ResourceFormatLoader<><>0<>1<><>::
 CharacterResourceSaver.gd::GDScript::11330996335859447::1782354400::0::1::::DialogicCharacterFormatSaver<>ResourceFormatSaver<><>0<>1<><>::
 dialogic_identifiable_resource.gd::GDScript::7504157656011423462::1782354400::0::1::::<>Resource<><>0<>1<><>::
@@ -645,7 +645,7 @@ dialogic_layout_layer.gd::GDScript::7097085608305494937::1782354400::0::1::::Dia
 dialogic_style.gd::GDScript::8686860375682204498::1782354400::0::1::::DialogicStyle<>Resource<><>0<>1<><>::
 dialogic_style_layer.gd::GDScript::3944887282532454131::1782354400::0::1::::DialogicStyleLayer<>Resource<><>0<>1<><>::
 event.gd::GDScript::8763588563558386910::1782354400::0::1::::DialogicEvent<>Resource<><>0<>1<><>::
-timeline.gd::GDScript::5667425671830628919::1782354400::0::1::::DialogicTimeline<>Resource<><>0<>1<><>::
+timeline.gd::GDScript::5667425671830628919::1782354400::0::1::::DialogicTimeline<>Resource<>uid://j7ym07anlusi<>0<>1<><>::
 TimelineResourceLoader.gd::GDScript::1953327801557244659::1782354400::0::1::::DialogicTimelineFormatLoader<>ResourceFormatLoader<><>0<>1<><>::
 TimelineResourceSaver.gd::GDScript::6005903703142383367::1782354400::0::1::::DialogicTimelineFormatSaver<>ResourceFormatSaver<><>0<>1<><>::
 ::res://Audio/::1781941665
@@ -663,10 +663,10 @@ NanoDyongSong.ttf::FontFile::5559388299547160634::1781940086::1781940219::1::::<
 ::res://Font/思源宋体/::1781940219
 SOURCEHANSERIFCN-BOLD-2.OTF::FontFile::1602389250184228803::1781940086::1781940219::1::::<><><>0<>0<>5ec5f6d5f17a1da940a28a249b2a60b2<>res://.godot/imported/SOURCEHANSERIFCN-BOLD-2.OTF-ee489829c57cd9faaaff5281be9f8ac5.fontdata::
 SOURCEHANSERIFCN-MEDIUM-6.OTF::FontFile::654886762748949252::1781940086::1781940219::1::::<><><>0<>0<>366252f9faa35f1d4bc414dd9c247292<>res://.godot/imported/SOURCEHANSERIFCN-MEDIUM-6.OTF-32cfa16c05e68c4314bdea7b8acb4103.fontdata::
-::res://Scene/::1782380485
+::res://Scene/::1782382666
 control.tscn::PackedScene::2185058960379818064::1782380485::0::1::::<><><>0<>0<><>::uid://cd84isryyf5vo::::res://Script/control.gd<>uid://cj10f86ptqkrv::::res://2D/纯白背景.png<>uid://ckm2agw1qo2mc::::res://Audio/BGM/Painting Room.mp3<>uid://dv1tivx7sl6b6::::res://Computer_BackImage_Center_Text.tres<>uid://gs3g3q352j0f::::res://Audio/SFX/XP电脑_双击.wav<>uid://wbx24ji4gaps::::res://icon.svg<>uid://dq7ixtwviuwoh::::res://2D/283AF8FCA3B9C4B0634A38232DD3CA74.png<>uid://clhakv5m88yni::::res://Font/NanoDyongSong.ttf<>uid://cph48m1fxxu7x::::res://2D/喇叭.png<>uid://b4nliexd2dor5::::res://2D/桌面图标 判断程序.png<>uid://0i1x0t7l6q60::::res://2D/246注销、关机.png<>uid://caaqk4h5ni5pl::::res://2D/桌面图标 资料库 10X10.png<>uid://b7jssxls7qjpn::::res://2D/桌面图标 邮箱.png<>uid://dk4qtallwh4sq::::res://2D/桌面图标 禁止.png
 forbidden_access.tscn::PackedScene::571024595730927094::1781948966::0::1::::<><><>0<>0<><>::uid://d8e4yag31egu::::res://Script/forbidden_access.gd
-info_library.tscn::PackedScene::17314024593205810::1782284699::0::1::::<><><>0<>0<><>::uid://bvaveohk8lvo2::::res://Script/info_library.gd<>uid://cj10f86ptqkrv::::res://2D/纯白背景.png<>uid://cfxgbjhjfct0o::::res://2D/X.png<>uid://clhakv5m88yni::::res://Font/NanoDyongSong.ttf<>uid://cp4lxa3lpqogn::::res://2D/搜索.png
+info_library.tscn::PackedScene::17314024593205810::1782382666::0::1::::<><><>0<>0<><>::uid://bvaveohk8lvo2::::res://Script/info_library.gd<>uid://cj10f86ptqkrv::::res://2D/纯白背景.png<>uid://cfxgbjhjfct0o::::res://2D/X.png<>uid://clhakv5m88yni::::res://Font/NanoDyongSong.ttf<>uid://cp4lxa3lpqogn::::res://2D/搜索.png<>uid://ddbf2u04doa4l::::res://2D/最小化.svg
 judge_program.tscn::PackedScene::673180247622048960::1781940086::0::1::::<><><>0<>0<><>::uid://xd7dvvrd6e1x::::res://Script/judge_program.gd<>uid://db3dpdnuew0fy::::res://Scene/judgment_page.tscn
 judgment_page.tscn::PackedScene::7287462588285337558::1781940086::0::1::::<><><>0<>0<><>::uid://cy0oup7wpjh7v::::res://Script/judgment_page_simple.gd
 loading_cursor.tscn::PackedScene::8786724387367217341::1781940086::0::1::::<><><>0<>0<><>::uid://drymipm2erhml::::res://Script/loading_cursor.gd<>uid://cht23gjjdulr8::::res://2D/加载中.png
@@ -674,16 +674,17 @@ operation_manual.tscn::PackedScene::759044727427::1782284702::0::1::::<><><>0<>0
 operation_page.tscn::PackedScene::6228997388743149207::1782284702::0::1::::<><><>0<>0<><>::uid://5dnu3v6ljvqu::::res://Script/operation_page_simple.gd
 popup_panel.tscn::PackedScene::4277905755266759445::1781953970::0::1::::<><><>0<>0<><>::
 ::res://Script/::1782284702
-control.gd::GDScript::5053308416130470328::1782379808::0::1::::<>Control<><>0<>0<><>::
+control.gd::GDScript::5053308416130470328::1782382346::0::1::::<>Control<><>0<>0<><>::
 forbidden_access.gd::GDScript::278986913663837760::1781940086::0::1::::<>Control<><>0<>0<><>::
-info_library.gd::GDScript::3861669346754939827::1782186243::0::1::::<>Control<><>0<>0<><>::
+info_library.gd::GDScript::3861669346754939827::1782382129::0::1::::<>Control<><>0<>0<><>::
 judge_program.gd::GDScript::1622485974296046627::1781940086::0::1::::<>Control<><>0<>0<><>::
 judgment_page_simple.gd::GDScript::6509869650631282921::1781940086::0::1::::<>Control<><>0<>0<><>::
 loading_cursor.gd::GDScript::8402761156908408679::1781940086::0::1::::<>Control<><>0<>0<><>::
 operation_manual.gd::GDScript::7031179595187322948::1781940086::0::1::::<>Control<><>0<>0<><>::
 operation_page_simple.gd::GDScript::2112684983705485984::1782284702::0::1::::<>Control<><>0<>0<><>::
-::res://Script/Manager/::1781955907
+::res://Script/Manager/::1782382657
 AudioManager.gd::GDScript::3614277980095686865::1782184788::0::1::::<>Node<><>0<>0<><>::
+Event_Bus.gd::GDScript::115248022253034878::1782382657::0::1::::<>Node<><>0<>0<><>::
 ::res://Timelines/::1782354399
 chapter1_ended.dtl::Resource/DialogicTimeline::1632697688122008081::1782354399::0::1::::<><>uid://j7ym07anlusi<>0<>0<><>::uid://uehdi2yswbhh<>uid://baq3ua3djr2ll<>uid://cm1mwoty0215x
 chapter1_finished.dtl::Resource/DialogicTimeline::6808522973723458132::1782354399::0::1::::<><>uid://j7ym07anlusi<>0<>0<><>::uid://baq3ua3djr2ll<>uid://uehdi2yswbhh<>uid://cm1mwoty0215x<>uid://dpr3ctvnevfwy

@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bvi7j1kuh1331"]
+
+[ext_resource type="Shader" uid="uid://dd1b8asty22xq" path="res://Shader/Televison.gdshader" id="1"]
+
+[resource]
+shader = ExtResource("1")
+shader_parameter/resolution = Vector2(940, 480)
+shader_parameter/scan_line_amount = 1.0
+shader_parameter/warp_amount = 0.010000000475
+shader_parameter/noise_amount = 0.0350000016625
+shader_parameter/interference_amount = 0.2
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.6
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.5
+shader_parameter/roll_line_amount = 0.2000000095
+shader_parameter/roll_speed = 0.250000391875
+shader_parameter/scan_line_strength = -8.0
+shader_parameter/pixel_strength = -2.0
