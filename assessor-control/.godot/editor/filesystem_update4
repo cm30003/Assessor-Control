@@ -1,8 +1,4 @@
-res://Timelines/chapter1_pre.dtl
-res://Timelines/chapter1_finished.dtl
-res://Timelines/chapter1_ended.dtl
-res://Characters/我.dch
-res://Characters/伊利斯.dch
-res://Characters/金.dch
 res://Scene/control.tscn
-res://Characters/希梅纳.dch
+res://Script/control.gd
+res://Scene/info_library.tscn
+res://Script/info_library.gd

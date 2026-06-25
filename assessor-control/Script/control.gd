@@ -14,8 +14,19 @@ const SCENE_MAP = {
 	"禁止打开": preload("res://Scene/forbidden_access.tscn"),
 }
 
+# 底栏快捷按钮节点名 -> SCENE_MAP 键名映射
+const BOTTOM_BAR_MAP = {
+	"judge_program": "判断程序",
+	"info_library": "信息库",
+	"operation_manual": "邮箱",
+	"forbidden_access": "禁止打开",
+}
+
 # 是否正在加载中（防止双击重复触发）
 var _is_loading := false
+
+# 当前已打开的页面（item_name -> Control 实例）
+var _open_pages := {}
 
 # 底部导航栏的日期时间标签
 @onready var _date_time_label: Label = $Bottom_navigation/DateTimeLabel
@@ -62,6 +73,10 @@ func _ready():
 	$Bottom_navigation/Audio.pressed.connect(_toggle_audio_panel)
 	# 连接开始菜单按钮
 	$Bottom_navigation/Start.pressed.connect(_toggle_start_panel)
+	# 连接底栏快捷按钮（HBoxContainer 下的 Button）
+	for button in $Bottom_navigation/HBoxContainer.get_children():
+		if button is Button:
+			button.pressed.connect(_on_bottom_bar_button_pressed.bind(button))
 	# 连接关机按钮
 	$StartPanel/Panel/ShutdownButton.pressed.connect(_on_shutdown_pressed)
 	# 连接音量滑块
@@ -86,11 +101,16 @@ func _on_item_double_click(event: InputEvent, item: TextureRect):
 	if _is_loading:
 		return
 	if event is InputEventMouseButton and event.pressed and event.double_click:
-		_is_loading = true
 		var item_name = _get_item_name(item)
 		if item_name == "":
-			_is_loading = false
 			return
+		# 页面已存在（未关闭）
+		if _open_pages.has(item_name):
+			# 如果是最小化状态则恢复，否则不做任何事
+			if not _open_pages[item_name].visible:
+				_restore_page(item_name)
+			return
+		_is_loading = true
 		await _start_loading(item_name)
 		AudioManager.play_sfx(sfx_MouseClick)
 		_is_loading = false
@@ -127,9 +147,60 @@ func _open_item_scene(item_name: String):
 		return
 
 	var instance = scene.instantiate()
+	# 注册到已打开页面字典
+	_open_pages[item_name] = instance
+	# 页面关闭时自动清理追踪
+	if instance.has_signal("closed"):
+		instance.closed.connect(_on_page_closed.bind(item_name))
+	# 页面最小化时隐藏
+	if instance.has_signal("minimized"):
+		instance.minimized.connect(_on_page_minimized.bind(item_name))
 	add_child(instance)
 	# 将新页面移至底部导航栏下方，确保底栏始终可交互
 	move_child(instance, $Bottom_navigation.get_index())
+
+
+## 页面关闭时从追踪字典中移除
+func _on_page_closed(item_name: String):
+	_open_pages.erase(item_name)
+
+
+## 页面最小化时隐藏
+func _on_page_minimized(item_name: String):
+	var instance = _open_pages.get(item_name)
+	if instance:
+		instance.hide()
+
+
+## 恢复已最小化的页面（直接显示，无加载动画）
+func _restore_page(item_name: String):
+	var instance = _open_pages.get(item_name)
+	if instance:
+		instance.show()
+		# 将页面置于底栏下方
+		move_child(instance, $Bottom_navigation.get_index())
+		# 确保底栏始终在渲染最上层（最后一个子节点）
+		move_child($Bottom_navigation, get_child_count() - 1)
+
+
+# ========== 底栏快捷按钮 ==========
+
+## 底栏图标点击时直接打开对应页面（无需双击和加载动画）
+func _on_bottom_bar_button_pressed(button: Button):
+	var item_name = BOTTOM_BAR_MAP.get(button.name)
+	if item_name == null:
+		return
+	# 页面已存在（未关闭）
+	if _open_pages.has(item_name):
+		# 如果是最小化状态则恢复，否则不做任何事
+		if not _open_pages[item_name].visible:
+			_restore_page(item_name)
+		return
+	if _is_loading:
+		return
+	_is_loading = true
+	await _start_loading(item_name)
+	_is_loading = false
 
 
 # ========== 音量面板 ==========

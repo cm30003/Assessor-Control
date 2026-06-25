@@ -1,6 +1,7 @@
 extends Control
 
 signal closed
+signal minimized
 
 # 搜索关键词 → 文本内容映射表（可自由增删）
 var _text_db := {
@@ -75,6 +76,7 @@ Assessor-Control 信息管理系统
 
 func _ready():
 	$Panel/Top_Line/Quit_Button.pressed.connect(_on_close)
+	$Panel/Top_Line/minimization_Button.pressed.connect(_on_minimized)
 	_line_edit.text_submitted.connect(_on_search_submitted)
 	_back_btn.pressed.connect(_on_back_pressed)
 
@@ -106,6 +108,10 @@ func _on_back_pressed():
 	_back_btn.hide()
 	_line_edit.clear()
 	_line_edit.grab_focus()
+
+
+func _on_minimized():
+	minimized.emit()
 
 
 func _on_close():

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://onlt6tnji741"
-path="res://.godot/imported/桌面图标 信息库@3x.png-faac77bc317581b16541b7dc411a3cf1.ctex"
+uid="uid://b4nliexd2dor5"
+path="res://.godot/imported/桌面图标 判断程序.png-acfda076209888583c68d19968ab5c08.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2D/桌面图标 信息库@3x.png"
-dest_files=["res://.godot/imported/桌面图标 信息库@3x.png-faac77bc317581b16541b7dc411a3cf1.ctex"]
+source_file="res://2D/桌面图标 判断程序.png"
+dest_files=["res://.godot/imported/桌面图标 判断程序.png-acfda076209888583c68d19968ab5c08.ctex"]
 
 [params]
 

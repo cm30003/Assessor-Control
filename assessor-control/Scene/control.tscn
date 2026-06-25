@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://wbx24ji4gaps" path="res://icon.svg" id="4_yx3qh"]
 [ext_resource type="Texture2D" uid="uid://dq7ixtwviuwoh" path="res://2D/283AF8FCA3B9C4B0634A38232DD3CA74.png" id="5_0ywqd"]
 [ext_resource type="FontFile" uid="uid://clhakv5m88yni" path="res://Font/NanoDyongSong.ttf" id="5_8ku2i"]
-[ext_resource type="Texture2D" uid="uid://onlt6tnji741" path="res://2D/桌面图标 信息库@3x.png" id="6_0ywqd"]
 [ext_resource type="Texture2D" uid="uid://cph48m1fxxu7x" path="res://2D/喇叭.png" id="6_kag2x"]
+[ext_resource type="Texture2D" uid="uid://b4nliexd2dor5" path="res://2D/桌面图标 判断程序.png" id="7_0ywqd"]
 [ext_resource type="Texture2D" uid="uid://0i1x0t7l6q60" path="res://2D/246注销、关机.png" id="8_8ku2i"]
 [ext_resource type="Texture2D" uid="uid://caaqk4h5ni5pl" path="res://2D/桌面图标 资料库 10X10.png" id="8_efncq"]
 [ext_resource type="Texture2D" uid="uid://b7jssxls7qjpn" path="res://2D/桌面图标 邮箱.png" id="9_vwb26"]
@@ -34,6 +34,9 @@ shadow_size = 5
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kbped"]
 load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dd1r"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Control" type="Control" unique_id=1050307790]
 layout_mode = 3
@@ -107,7 +110,7 @@ theme_override_constants/separation = 150
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("6_0ywqd")
+texture = ExtResource("7_0ywqd")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/TextureRect" unique_id=1554735662]
@@ -372,8 +375,7 @@ texture = ExtResource("2_kag2x")
 expand_mode = 1
 
 [node name="Bottom_navigation" type="TextureRect" parent="." unique_id=492753379]
-modulate = Color(0.47397548, 0.47397578, 0.47397572, 1)
-z_index = 1
+self_modulate = Color(0.5079715, 0.5079715, 0.5079715, 1)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -414,7 +416,6 @@ offset_right = 225.0
 offset_bottom = -4.0
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.22430372, 0.22430426, 0.22430387, 1)
-theme_override_colors/icon_normal_color = Color(2.137626, 2.137626, 2.137626, 1)
 theme_override_constants/h_separation = 0
 theme_override_constants/icon_max_width = 80
 theme_override_font_sizes/font_size = 40
@@ -437,5 +438,49 @@ offset_bottom = -12.0
 grow_horizontal = 0
 grow_vertical = 2
 icon = ExtResource("6_kag2x")
+icon_alignment = 1
+expand_icon = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Bottom_navigation" unique_id=35607965]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 270.0
+offset_top = -25.0
+offset_right = 620.0
+offset_bottom = 25.0
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="judge_program" type="Button" parent="Bottom_navigation/HBoxContainer" unique_id=2063269917]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_2dd1r")
+icon = ExtResource("7_0ywqd")
+icon_alignment = 1
+expand_icon = true
+
+[node name="info_library" type="Button" parent="Bottom_navigation/HBoxContainer" unique_id=1735181610]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_2dd1r")
+icon = ExtResource("8_efncq")
+icon_alignment = 1
+expand_icon = true
+
+[node name="operation_manual" type="Button" parent="Bottom_navigation/HBoxContainer" unique_id=1657191968]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_2dd1r")
+icon = ExtResource("9_vwb26")
+icon_alignment = 1
+expand_icon = true
+
+[node name="forbidden_access" type="Button" parent="Bottom_navigation/HBoxContainer" unique_id=599753134]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_2dd1r")
+icon = ExtResource("10_immvg")
 icon_alignment = 1
 expand_icon = true

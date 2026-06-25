@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7paay3ccsuu1"
-path="res://.godot/imported/禁止访问.svg-e3327bb973e0d8a99f923c2f47676a73.ctex"
+uid="uid://ddbf2u04doa4l"
+path="res://.godot/imported/最小化.svg-ee960d12c55bdb66a85641a6972bb8cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2D/禁止访问.svg"
-dest_files=["res://.godot/imported/禁止访问.svg-e3327bb973e0d8a99f923c2f47676a73.ctex"]
+source_file="res://2D/最小化.svg"
+dest_files=["res://.godot/imported/最小化.svg-ee960d12c55bdb66a85641a6972bb8cf.ctex"]
 
 [params]
 
