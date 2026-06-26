@@ -173,13 +173,19 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 24.0
 offset_top = 107.0
+offset_right = -24.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="Content" type="RichTextLabel" parent="Panel/ContentScroll" unique_id=1834567894]
+[node name="ContentVBox" type="VBoxContainer" parent="Panel/ContentScroll" unique_id=1857321880]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Content" type="RichTextLabel" parent="Panel/ContentScroll/ContentVBox" unique_id=1834567894]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -189,3 +195,10 @@ theme_override_font_sizes/normal_font_size = 24
 fit_content = true
 autowrap_mode = 2
 selection_enabled = true
+
+[node name="ContentImage" type="TextureRect" parent="Panel/ContentScroll/ContentVBox" unique_id=58766014]
+custom_minimum_size = Vector2(10, 500)
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 2
+stretch_mode = 4
