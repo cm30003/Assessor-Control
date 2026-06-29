@@ -39,6 +39,9 @@ load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.cte
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dd1r"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8aw1e"]
+bg_color = Color(0.4305317, 0.61193097, 0.74674916, 0.29411766)
+
 [node name="Control" type="Control" unique_id=1050307790]
 layout_mode = 3
 anchors_preset = 15
@@ -496,3 +499,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 mouse_behavior_recursive = 1
+
+[node name="Single_Click_Rect" type="Panel" parent="." unique_id=373707206]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 32.0
+offset_right = 180.0
+offset_bottom = 202.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8aw1e")

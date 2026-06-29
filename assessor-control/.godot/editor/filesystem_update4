@@ -1,6 +1,4 @@
+res://Scene/info_library.tscn
 res://Script/control.gd
 res://Script/info_library.gd
 res://Scene/control.tscn
-res://Script/TextDatabase.gd
-res://Scene/info_library.tscn
-res://Resources/info_library_data.tres

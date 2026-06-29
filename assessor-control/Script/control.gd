@@ -28,6 +28,12 @@ var _is_loading := false
 # 当前已打开的页面（item_name -> Control 实例）
 var _open_pages := {}
 
+# 当前选中的桌面图标（单击高亮框）
+var _selected_item: TextureRect = null
+
+# 桌面图标选中高亮框（场景中已创建的 Panel 节点）
+@onready var _selection_indicator: Panel = $Single_Click_Rect
+
 # 底部导航栏的日期时间标签
 @onready var _date_time_label: Label = $Bottom_navigation/DateTimeLabel
 
@@ -59,15 +65,22 @@ func _ready():
 	timer.autostart = true
 	add_child(timer)
 
-	# 遍历 VBoxContainer 下的所有子节点，为每个图标绑定双击事件
+	# 确保选中框不拦截鼠标事件且默认隐藏
+	_selection_indicator.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_selection_indicator.hide()
+
+	# 点击根节点空白区域时取消图标选中
+	gui_input.connect(_on_root_gui_input)
+
+	# 遍历 VBoxContainer 下的所有子节点，为每个图标绑定输入事件
 	for child in $VBoxContainer.get_children():
 		if child is TextureRect:
 			# 让 Label 不拦截鼠标事件，透传到 TextureRect
 			for grandchild in child.get_children():
 				if grandchild is Label:
 					grandchild.mouse_filter = Control.MOUSE_FILTER_IGNORE
-			# 连接双击输入事件
-			child.gui_input.connect(_on_item_double_click.bind(child))
+			# 连接输入事件（单击选中 + 双击打开）
+			child.gui_input.connect(_on_item_gui_input.bind(child))
 
 	# 连接音量开关按钮
 	$Bottom_navigation/Audio.pressed.connect(_toggle_audio_panel)
@@ -96,24 +109,61 @@ func _update_date_time():
 	_date_time_label.text = "%s\n%s" % [time_str, date_str]
 
 
-# 处理双击事件
-func _on_item_double_click(event: InputEvent, item: TextureRect):
+# 处理图标输入事件（单击选中 + 双击打开）
+func _on_item_gui_input(event: InputEvent, item: TextureRect):
 	if _is_loading:
 		return
-	if event is InputEventMouseButton and event.pressed and event.double_click:
-		var item_name = _get_item_name(item)
-		if item_name == "":
-			return
-		# 页面已存在（未关闭）
-		if _open_pages.has(item_name):
-			# 如果是最小化状态则恢复，否则不做任何事
-			if not _open_pages[item_name].visible:
-				_restore_page(item_name)
-			return
-		_is_loading = true
-		await _start_loading(item_name)
-		AudioManager.play_sfx(sfx_MouseClick)
-		_is_loading = false
+	if event is InputEventMouseButton and event.pressed:
+		accept_event()
+		if event.double_click:
+			_open_item_from_icon(item)
+		else:
+			_select_item(item)
+
+
+# 双击图标：打开对应页面
+func _open_item_from_icon(item: TextureRect):
+	var item_name = _get_item_name(item)
+	if item_name == "":
+		return
+	# 页面已存在（未关闭）
+	if _open_pages.has(item_name):
+		# 如果是最小化状态则恢复，否则不做任何事
+		if not _open_pages[item_name].visible:
+			_restore_page(item_name)
+		return
+	_is_loading = true
+	await _start_loading(item_name)
+	AudioManager.play_sfx(sfx_MouseClick)
+	_is_loading = false
+
+
+# 单击图标：显示选中高亮框（居中于图标）
+func _select_item(item: TextureRect):
+	if _selected_item == item:
+		return
+	_selected_item = item
+	_selection_indicator.position = item.global_position + (item.size - Vector2(160, 140)) / 2.0
+	_selection_indicator.size = Vector2(160, 170)
+	_selection_indicator.show()
+
+
+# 取消选中
+func _deselect_item():
+	_selected_item = null
+	_selection_indicator.hide()
+
+
+# 点击根节点空白区域时取消图标选中
+func _on_root_gui_input(event: InputEvent):
+	if event is InputEventMouseButton and event.pressed:
+		_deselect_item()
+
+
+# 兜底：点击任何未被其他控件处理的位置时取消选中（例如 VBoxContainer 缝隙）
+func _unhandled_input(event: InputEvent):
+	if event is InputEventMouseButton and event.pressed:
+		_deselect_item()
 
 
 # 从 TextureRect 的子节点中获取 Label 的文本作为项目名称

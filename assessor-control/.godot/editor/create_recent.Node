@@ -1,12 +1,12 @@
+Panel
 ColorRect
-Button
 TextureRect
+Button
 TextureButton
 HBoxContainer
 VBoxContainer
 Label
 ScrollContainer
-Panel
 LineEdit
 Line2D
 AudioStreamPlayer
