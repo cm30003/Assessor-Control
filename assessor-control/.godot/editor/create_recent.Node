@@ -1,3 +1,4 @@
+Label
 Panel
 ColorRect
 TextureRect
@@ -5,7 +6,6 @@ Button
 TextureButton
 HBoxContainer
 VBoxContainer
-Label
 ScrollContainer
 LineEdit
 Line2D

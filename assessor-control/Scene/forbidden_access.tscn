@@ -1,6 +1,48 @@
 [gd_scene format=3 uid="uid://ieuxrtfo4vwo"]
 
 [ext_resource type="Script" uid="uid://d8e4yag31egu" path="res://Script/forbidden_access.gd" id="1_vesdm"]
+[ext_resource type="FontFile" uid="uid://clhakv5m88yni" path="res://Font/NanoDyongSong.ttf" id="2_iupbj"]
+[ext_resource type="Texture2D" uid="uid://bk8p4rylxyjkl" path="res://2D/Info_lib_Image/x（White）.png" id="3_oqo07"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8aw1e"]
+bg_color = Color(0.0049614143, 0.28077394, 0.781889, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efncq"]
+bg_color = Color(0.9456398, 0.8762086, 0.77894944, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwb26"]
+bg_color = Color(0.91764706, 0.90588236, 0.84705883, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0768358, 0.07683583, 0.07683576, 1)
+shadow_size = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dd1r"]
+bg_color = Color(0.9843137, 0.011764706, 0.011764706, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
+corner_detail = 20
+shadow_size = 1
+shadow_offset = Vector2(2, 2)
+anti_aliasing = false
+anti_aliasing_size = 0.01
 
 [node name="ForbiddenAccess" type="Control" unique_id=250747732]
 layout_mode = 3
@@ -11,18 +53,33 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vesdm")
 
-[node name="Overlay" type="ColorRect" parent="." unique_id=1739809863]
-modulate = Color(0, 0, 0, 0.5)
+[node name="边框" type="Panel" parent="." unique_id=475951479]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 544.0
+offset_top = 280.0
+offset_right = -544.0
+offset_bottom = -270.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
-color = Color(0, 0, 0, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_8aw1e")
 
-[node name="Panel" type="Panel" parent="Overlay" unique_id=1600590561]
+[node name="Label" type="Label" parent="边框" unique_id=780999696]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 14.0
+offset_right = 261.0
+offset_bottom = 102.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7058824)
+theme_override_fonts/font = ExtResource("2_iupbj")
+theme_override_font_sizes/font_size = 80
+text = "Error！"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=1600590561]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -30,45 +87,65 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -400.0
-offset_top = -250.0
+offset_top = -146.0
 offset_right = 400.0
 offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_efncq")
 
-[node name="Title" type="Label" parent="Overlay/Panel" unique_id=1629698883]
+[node name="Title" type="Label" parent="Panel" unique_id=1629698883]
 layout_mode = 1
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = 70.0
-theme_override_font_sizes/font_size = 36
-text = "禁止打开"
+offset_left = 284.0
+offset_top = 82.0
+offset_right = 589.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0.17641911, 0.17641908, 0.17641908, 1)
+theme_override_fonts/font = ExtResource("2_iupbj")
+theme_override_font_sizes/font_size = 72
+text = "禁止打开!"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="CloseButton" type="Button" parent="Overlay/Panel" unique_id=73563152]
+[node name="CloseButton" type="Button" parent="Panel" unique_id=73563152]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 300.0
-offset_top = -50.0
-offset_right = -20.0
-offset_bottom = -20.0
+offset_left = 108.0
+offset_top = -146.0
+offset_right = -460.0
+offset_bottom = -66.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 24
-text = "退出"
+theme_override_colors/font_color = Color(0.07683582, 0.07683582, 0.07683582, 1)
+theme_override_fonts/font = ExtResource("2_iupbj")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_vwb26")
+text = "退 出"
 
-[node name="Content" type="RichTextLabel" parent="Overlay/Panel" unique_id=1252395307]
+[node name="Panel" type="Panel" parent="Panel" unique_id=678748845]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 31.0
+offset_right = 219.0
+offset_bottom = 199.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2dd1r")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Panel" unique_id=1909010749]
 layout_mode = 1
-offset_left = 20.0
-offset_top = 80.0
-offset_right = -20.0
-offset_bottom = -70.0
-theme_override_font_sizes/normal_font_size = 24
-text = "?? ��û��Ȩ�޷��ʴ����ݣ�
-
-��ģ���ѱ�ϵͳ������"
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -52.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_oqo07")
+expand_mode = 1
